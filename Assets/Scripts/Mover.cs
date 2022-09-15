@@ -23,7 +23,7 @@ void Start()
           startTime = Time.time;
 
      // Calculate the journey length.
-          journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+          journeyLength = Vector3.Distance(startMarker1.position, endMarker1.position);
      }
 
 // Follows the target position like with a spring
@@ -36,6 +36,6 @@ void Update()
           float fracJourney = distCovered / journeyLength;
 
      // Set our position as a fraction of the distance between the markers and pingpong the movement.
-          transform.position = Vector3.Lerp(startMarker.position, endMarker.position, Mathf.PingPong (fracJourney, 1));
+          transform.position = Vector3.Lerp(startMarker1.position, endMarker1.position, Mathf.PingPong (fracJourney, 1));
      }
 }
