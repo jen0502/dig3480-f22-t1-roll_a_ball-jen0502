@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
             count = count - 1;
             SetCountText();
         }
+        
     }
 
     void OnMove(InputValue value)
