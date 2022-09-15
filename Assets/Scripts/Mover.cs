@@ -5,8 +5,8 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
    // Transforms to act as start and end markers for the journey.
-public Transform startMarker;
-public Transform endMarker;
+public Transform startMarker1;
+public Transform endMarker1;
 
 // Movement speed in units/sec.
 public float speed = 1.0F;
