@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         }
         if (count == 12) 
 {
-    transform.position = new Vector3(50.0f, 0.0f, 50.0f); 
+    transform.position = new Vector3(39.66f, 0.5f, .37f); 
 }
     }
 
