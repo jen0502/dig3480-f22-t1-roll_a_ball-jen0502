@@ -43,20 +43,18 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pick Up"))
+        // ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
+        if (other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
+
+            // Add one to the score variable 'count'
             count = count + 1;
-            SetCountText(winTextObject);
-        }
-        else if (other.gameObject.CompareTag("enemy"))
-        {
-            other.gameObject.SetActive(false);
-            count = count - 1;
+
+            // Run the 'SetCountText()' function (see below)
             SetCountText();
         }
     }
-}
 
     void OnMove(InputValue value)
     {
