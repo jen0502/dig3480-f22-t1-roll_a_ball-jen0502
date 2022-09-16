@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
+        livesText.text = "Lives: " + lives.ToString();
 
         if (count >= 20)
         {
