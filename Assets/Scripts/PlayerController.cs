@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI livesText;
     public GameObject winTextObject;
+    public GameObject loseTextObject;
 
     private float movementX;
     private float movementY;
@@ -84,7 +85,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void SetLivesText()
-    {livesText.text = "Lives: " + count.ToString();
+    {
+        livesText.text = "Lives: " + count.ToString();
+
     if (count >= 0)
-    loseTextObject.SetActive(true);}
+    {
+        loseTextObject.SetActive(true);
+    
+    }
+    }
+}
 
