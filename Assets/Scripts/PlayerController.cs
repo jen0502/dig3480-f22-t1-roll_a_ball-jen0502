@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         lives = 3;
 
         SetCountText();
+        SetLivesText();
 
         // Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
         winTextObject.SetActive(false);
