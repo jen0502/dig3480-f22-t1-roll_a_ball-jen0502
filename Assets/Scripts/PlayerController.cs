@@ -83,18 +83,13 @@ public class PlayerController : MonoBehaviour
             // Set the text value of your 'winText'
             winTextObject.SetActive(true);
         }
-        
-    }
-
-    void SetLivesText()
-    {
         livesText.text = "Lives: " + count.ToString();
 
-    if (lives == 0)
-    {
-        loseTextObject.SetActive(true);
-    
-    }
+        if (lives == 0)
+        {
+            loseTextObject.SetActive(true);
+
+        }
     }
 }
 
