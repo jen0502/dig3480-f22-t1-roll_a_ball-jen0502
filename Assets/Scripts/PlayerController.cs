@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
             // Set the text value of your 'winText'
             winTextObject.SetActive(true);
         }
+        
     }
 
     void SetLivesText()
