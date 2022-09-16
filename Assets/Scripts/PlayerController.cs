@@ -82,6 +82,10 @@ public class PlayerController : MonoBehaviour
             winTextObject.SetActive(true);
         }
         livesText.text = "Lives: " + lives.ToString();
+
+        {livesTextObject.SetActive(true);
+        
+        }
     }
 }
 
