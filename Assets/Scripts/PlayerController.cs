@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
         // Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
         winTextObject.SetActive(false);
+        loseTextObject.SetActive(false);
     }
 
     void FixedUpdate()
