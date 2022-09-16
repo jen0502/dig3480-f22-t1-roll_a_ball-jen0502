@@ -693,9 +693,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   countText: {fileID: 2046497840}
-  livesText: {fileID: 0}
+  livesText: {fileID: 1426266107}
   winTextObject: {fileID: 1147781830}
-  loseTextObject: {fileID: 0}
+  loseTextObject: {fileID: 1153547170}
 --- !u!1 &362069532
 GameObject:
   m_ObjectHideFlags: 0
