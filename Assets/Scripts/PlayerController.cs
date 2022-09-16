@@ -85,5 +85,6 @@ public class PlayerController : MonoBehaviour
 
     void SetLivesText()
     {livesText.text = "Lives: " + count.ToString();
-    }
+    if (count >= 0)
+    loseTextObject.SetActive(true);}
 
