@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame.unity
     guid: 9424661ba4c66494f9a80969fef2a5c6
+  - enabled: 1
+    path: Assets/roll a ball challenge.unity
+    guid: c5f9cc44e96debd4fa4ad2f44e0a61ff
   m_configObjects: {}
