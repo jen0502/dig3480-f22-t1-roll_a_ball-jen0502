@@ -73,26 +73,5 @@ public class PlayerController : MonoBehaviour
         movementX = v.x;
         movementY = v.y;
     }
-
-    void SetCountText()
-    {
-        countText.text = "Count: " + count.ToString();
-
-        if (count >= 20)
-        {
-            // Set the text value of your 'winText'
-            winTextObject.SetActive(true);
-            gameObject.SetActive(false);
-        }
-        livesText.text = "Lives: " + lives.ToString();
-
-        if (lives == 0)
-        {
-            loseTextObject.SetActive(true);
-            gameObject.SetActive (false);
-
-        }
-    }
-    
 }
 
