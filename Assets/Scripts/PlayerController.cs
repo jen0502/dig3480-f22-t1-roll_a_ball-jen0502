@@ -93,20 +93,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    {  private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("PickUp"))
-        {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText();
-        }
-        else if (other.gameObject.CompareTag("enemy"))
-        {
-            other.gameObject.SetActive(false);
-            lives = lives - 1;
-            SetCountText();
-        }
-    }
+    
 }
 
