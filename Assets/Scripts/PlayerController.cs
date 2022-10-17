@@ -9,17 +9,11 @@ public class PlayerController : MonoBehaviour
 
     // Create public variables for player speed, and for the Text UI game objects
     public float speed;
-    public TextMeshProUGUI countText;
-    public TextMeshProUGUI livesText;
-    public GameObject winTextObject;
-    public GameObject loseTextObject;
 
     private float movementX;
     private float movementY;
 
     private Rigidbody rb;
-    private int count;
-    private int lives;
 
     // At the start of the game..
     void Start()
@@ -72,6 +66,26 @@ public class PlayerController : MonoBehaviour
 
         movementX = v.x;
         movementY = v.y;
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
+
+        if (count >= 20)
+        {
+            // Set the text value of your 'winText'
+            winTextObject.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        livesText.text = "Lives: " + lives.ToString();
+
+        if (lives == 0)
+        {
+            loseTextObject.SetActive(true);
+            gameObject.SetActive (false);
+
+        }
     }
 }
 
