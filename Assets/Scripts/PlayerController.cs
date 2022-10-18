@@ -6,12 +6,23 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D rd2d;
-
     public float speed;
 
-    public Text score;
+    // Score and Lives Text and Integers
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
+    private int scoreValue;
+    private int livesValue;
 
-    private int scoreValue = 0;
+    // Win and Lose Text
+    public GameObject WinTextObject;
+    public GameObject LoseTextObject;
+
+    // Ground Check Variables
+    private bool isOnGround;
+    public Transform groundcheck;
+    public float checkRadius;
+    public LayerMask allGround;
 
     // Start is called before the first frame update
     void Start()
