@@ -1,52 +1,97 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerScript : MonoBehaviour
+// Include the namespace required to use Unity UI and Input System
+using UnityEngine.InputSystem;
+using TMPro;
+
+public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rd2d;
 
+    // Create public variables for player speed, and for the Text UI game objects
     public float speed;
+    public TextMeshProUGUI countText;
+    public TextMeshProUGUI livesText;
+    public GameObject winTextObject;
+    public GameObject loseTextObject;
 
-    public Text score;
+    private float movementX;
+    private float movementY;
 
-    private int scoreValue = 0;
+    private Rigidbody rb;
+    private int count;
+    private int lives;
 
-    // Start is called before the first frame update
+    // At the start of the game..
     void Start()
     {
-        rd2d = GetComponent<Rigidbody2D>();
-        score.text = scoreValue.ToString();
+        // Assign the Rigidbody component to our private rb variable
+        rb = GetComponent<Rigidbody>();
+
+        // Set the count to zero 
+        count = 0;
+        lives = 3;
+
+        SetCountText();
+
+        // Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
+        winTextObject.SetActive(false);
+        loseTextObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        float hozMovement = Input.GetAxis("Horizontal");
-        float vertMovement = Input.GetAxis("Vertical");
-        rd2d.AddForce(new Vector2(hozMovement * speed, vertMovement * speed));
+        // Create a Vector3 variable, and assign X and Z to feature the horizontal and vertical float variables above
+        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+
+        rb.AddForce(movement * speed);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "Coin")
+        if (other.gameObject.CompareTag("PickUp"))
         {
-            scoreValue += 1;
-            score.text = scoreValue.ToString();
-            Destroy(collision.collider.gameObject);
+            other.gameObject.SetActive(false);
+            count = count + 1;
+            SetCountText();
         }
-
+        else if (other.gameObject.CompareTag("enemy"))
+        {
+            other.gameObject.SetActive(false);
+            lives = lives - 1;
+            SetCountText();
+        }
+        if (count == 12) 
+{
+    transform.position = new Vector3(57.5f, 0.5f, -2.94f); 
+}
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    void OnMove(InputValue value)
     {
-        if (collision.collider.tag == "Ground")
+        Vector2 v = value.Get<Vector2>();
+
+        movementX = v.x;
+        movementY = v.y;
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
+
+        if (count >= 20)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                rd2d.AddForce(new Vector2(0, 3), ForceMode2D.Impulse); //the 3 in this line of code is the player's "jumpforce," and you change that number to get different jump behaviors.  You can also create a public variable for it and then edit it in the inspector.
-            }
+            // Set the text value of your 'winText'
+            winTextObject.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        livesText.text = "Lives: " + lives.ToString();
+
+        if (lives == 0)
+        {
+            loseTextObject.SetActive(true);
+            gameObject.SetActive (false);
+
         }
     }
 }
+
